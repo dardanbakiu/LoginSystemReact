@@ -7,7 +7,7 @@ app.use('/', (req,res)=>{
         {id:2 , username: 'mirjeta', password: 'pw'},
     ]
 
-    res.json(users)
+    res.json(users);
 })
 
 const port = 3001
