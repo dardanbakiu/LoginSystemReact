@@ -1,14 +1,15 @@
 const express = require('express')
 const app = express()
+const ApiRouter = require('./router/ApiRouter')
+const cors = require('cors')
+const bodyParser = require("body-parser");
+app.use(cors())
 
-app.use('/', (req,res)=>{
-    const users = [
-        {id:1 , username: 'dardan', password: 'pw'},
-        {id:2 , username: 'mirjeta', password: 'pw'},
-    ]
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-    res.json(users);
-})
+app.use(ApiRouter.SignUpRouter)
+
 
 const port = 3001
 app.listen(port, () => {
