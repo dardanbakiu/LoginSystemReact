@@ -29,7 +29,11 @@ export default class Signin extends Component {
             password: this.state.password
         })
             .then(response => console.log(response.data))
-            .catch(err => console.log(err))
+
+            .catch(err => {
+                console.log(err);
+                alert(err)
+            })
     }
 
     render() {
