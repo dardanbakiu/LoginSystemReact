@@ -12,6 +12,7 @@ export default class Inputusername extends React.Component {
                     id="standard-password-input"
                     label={this.props.label}
                     type={this.props.type}
+                    onChange={this.props.Change}
                     autoComplete="current-password"
                 />
             </div>

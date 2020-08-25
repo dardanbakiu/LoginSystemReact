@@ -5,7 +5,7 @@ export default class Btn extends React.Component {
     render() {
         return (
             <div style={{margin:'2% 0', display:'flex', justifyContent:'center'}}>
-                <Button variant="contained" color="primary">
+                <Button variant="contained" color="primary" onClick={this.props.Click}>
                     {this.props.label}
                 </Button>
             </div>
