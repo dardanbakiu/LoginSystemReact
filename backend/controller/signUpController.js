@@ -10,7 +10,7 @@ exports.controller = (req, res) => {
     const password = req.body.password
     const email = req.body.email
 
-    const hashPassword = bcrypt.hashSync(password, 5); // kodi per me enkriptu passwordin
+    const hashPassword = bcrypt.hashSync(password, 10); // kodi per me enkriptu passwordin
 
     const newUser = new DBuser({
         username: username,
@@ -21,7 +21,10 @@ exports.controller = (req, res) => {
     newUser
         .save()
         .then(document => console.log(document))
-        .catch(error => console.log(error))
+        .catch(error => {
+            console.log(error)
+            alert(error)
+        })
 
     res.json({ 'msg': 'data came to backend', 'pass': password, 'hashedPw': hashPassword })
 }
