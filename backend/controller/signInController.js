@@ -8,12 +8,20 @@ exports.controller = (req, res) => {
     //kodi me krahasu passwordin a eshte i sakt prej databaze
     //hash eshte pw prej databaze 
 
-    const Users = new User()
-    Users.findOne({ username: 'dardanbakiu' }).then(doc => console.log(doc))
+    const username = req.body.username
+    const password = req.body.password
 
-    if (bcrypt.compareSync('somePassword', hash)) {
-        // Passwords match
-    } else {
-        // Passwords don't match
-    }
+    const Users = new User()
+
+
+    DBuser.findOne({ username: 'dardanbakiu' }, (err,document)=>{
+        if(err=> res.json(err))//status(500).send(err))
+        return res.json(document)//status(200).send(document)
+    })
+
+    // if (bcrypt.compareSync('somePassword', hash)) {
+    //     // Passwords match
+    // } else {
+    //     // Passwords don't match
+    // }
 }
