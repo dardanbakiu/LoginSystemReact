@@ -4,8 +4,10 @@ import { BrowserRouter, Link, Route, Switch } from 'react-router-dom'
 import Home from './pages/home/Home'
 import Signin from './pages/signin/Signin'
 import Signup from './pages/signup/Signup'
-import Error from './pages/Error'
-import Navigation from './pages/Navigation'
+import Error from './pages/Error/Error'
+import Navigation from './pages/components/Navigation'
+
+import './pages/style/App.css'
 
 
 class App extends React.Component {
@@ -14,6 +16,8 @@ class App extends React.Component {
   }
 
   render() {
+    
+
     return (
       <BrowserRouter>
         <div>
