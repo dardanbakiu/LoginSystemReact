@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Input from '../components/Input'
 import Btn from '../components/Btn'
+import axios from 'axios'
 
 export default class Signup extends Component {
     state = {
@@ -10,32 +11,50 @@ export default class Signup extends Component {
         email: null
     }
 
-    onUsernameChange = async (e) => {
-        await this.setState({
+    onUsernameChange = (e) => {
+        this.setState({
             username: e.target.value
         })
     }
 
-    onPasswordChange = async (e) => {
-        await this.setState({
+    onPasswordChange = (e) => {
+        this.setState({
             password: e.target.value
         })
     }
 
-    onRepeatPasswordChange = async (e) => {
-        await this.setState({
+    onRepeatPasswordChange = (e) => {
+        this.setState({
             repeatPassword: e.target.value
         })
     }
 
-    onEmailChange = async (e) => {
-        await this.setState({
+    inputValidation = (username, email, password, repeatPw) => {
+        let usernameLength = username.length
+        let emailLength = email.length
+        let passwordLength = password.length
+        let repeatPwLength = repeatPw.length
+
+        let isValid = true
+
+        //kjo nuk eshte kry hala, kerko per me validu ni forme
+    }
+
+    onEmailChange = (e) => {
+        this.setState({
             email: e.target.value
         })
     }
 
-    onSignUpClick = async () => {
-        console.log(this.state)
+    onSignUpClick = () => {
+        const url = 'http://localhost:3001'
+        axios.post(`${url}/api/signup/`, {
+            username: this.state.username,
+            password: this.state.password,
+            email: this.state.email
+        })
+            .then(response => console.log(response.data))
+            .catch(err => console.log(err))
     }
 
     render() {
